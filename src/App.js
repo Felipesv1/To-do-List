@@ -85,7 +85,7 @@ export default class App extends Component {
   };
 
   add = () => {
-    if (this.state.task.length > 0) {
+    if (this.state.task.length > 0 && !this.state.task.match(/^[ \t]+$/)) {
       this.setState({
         taskList: this.state.taskList.concat({
           task: this.state.task,
