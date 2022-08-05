@@ -85,7 +85,7 @@ export default class App extends Component {
   };
 
   add = (event) => {
-    if (this.state.task.length > 0 && event.key === "Enter") {
+    if (this.state.task.length > 0) {
       this.setState({
         taskList: this.state.taskList.concat({
           task: this.state.task,
@@ -95,6 +95,19 @@ export default class App extends Component {
       });
     }
   };
+
+  handleKeyboard = (event) => {
+    if (event.key === "Enter") {
+      this.setState({
+        taskList: this.state.taskList.concat({
+          task: this.state.task,
+          id: Date.now()
+        }),
+        task: ""
+      });
+    }
+  };
+
   removerTarefa = (id) => {
     this.setState({
       taskList: this.state.taskList.filter((item) => {
@@ -113,7 +126,7 @@ export default class App extends Component {
             type="text"
             value={this.state.task}
             onChange={this.HandleChange}
-            onKeyDown={this.add}
+            onKeyDown={this.handleKeyboard}
           />
           <AddButton onClick={this.add}>Adicionar Tarefa</AddButton>
         </InputButton>
