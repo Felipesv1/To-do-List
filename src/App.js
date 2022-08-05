@@ -84,7 +84,7 @@ export default class App extends Component {
     });
   };
 
-  add = (event) => {
+  add = () => {
     if (this.state.task.length > 0) {
       this.setState({
         taskList: this.state.taskList.concat({
