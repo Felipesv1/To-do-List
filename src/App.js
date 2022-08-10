@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-
+import Excluir from "./img/excluir";
 const GlobalStyle = createGlobalStyle`
 
 *{
@@ -9,7 +9,10 @@ const GlobalStyle = createGlobalStyle`
   box-sizing:border-box;
 
   body{
-  background:SaddleBrown;
+  background:SteelBlue;
+  }
+  img{
+    width:25px;
   }
 }
 `;
@@ -19,7 +22,7 @@ const Container = styled.div`
   max-width: 400px;
   margin: 0 auto;
   margin-top: 20px;
-  background: Moccasin;
+  background: WhiteSmoke;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -33,7 +36,6 @@ const Container2 = styled.div`
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
-  background: Moccasin;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -65,7 +67,6 @@ const PeButton = styled.div`
 
   button {
     padding: 5px;
-    background: red;
     border: none;
     color: white;
     cursor: pointer;
@@ -135,7 +136,7 @@ export default class App extends Component {
             <PeButton>
               <p>{item.task}</p>
               <button onClick={() => this.removerTarefa(item.id)}>
-                Remover tarefa
+                <img src={Excluir} alt="" />{" "}
               </button>
             </PeButton>
           </Container2>
