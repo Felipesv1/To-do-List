@@ -61,7 +61,6 @@ const AddButton = styled.button`
 const PeButton = styled.div`
   width: 100%;
   display: flex;
-  border: 1px solid black;
   justify-content: space-around;
   align-items: center;
 
@@ -98,7 +97,7 @@ export default class App extends Component {
   };
 
   handleKeyboard = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && this.state.task.length > 0) {
       this.setState({
         taskList: this.state.taskList.concat({
           task: this.state.task,
